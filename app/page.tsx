@@ -70,6 +70,7 @@ export default function HomePage() {
   const [tokenCopied, setTokenCopied] = useState(false);
   const [showSlipModal, setShowSlipModal] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
+  const [showValidationError, setShowValidationError] = useState(false);
 
   // Calculator State - Official Quotas: Bike (20L), Rickshaw (20L), 800cc (30L)
   const [vehicleType, setVehicleType] = useState<"bike" | "rickshaw" | "car">("bike");
@@ -835,13 +836,39 @@ export default function HomePage() {
 
                 {/* Big Direct Action Buttons */}
                 <div className="space-y-2">
-                  <a
-                    href={registrationSmsHref}
-                    className="w-full py-3.5 px-4 bg-linear-to-r from-amber-400 to-amber-300 hover:from-amber-300 active:scale-95 text-stone-950 rounded-2xl font-black text-base shadow-lg transition flex items-center justify-center gap-2 text-center cursor-pointer"
+                  {/* Validation Error */}
+                  {showValidationError && (
+                    <div className="bg-red-600/90 border border-red-400 text-white rounded-xl px-3 py-2.5 text-xs font-bold text-center animate-bounce">
+                      ⚠️ براہ کرم پہلے چاروں خانے مکمل بھریں:
+                      <ul className="mt-1 space-y-0.5 font-normal text-[11px] text-red-100 text-right">
+                        {cnic.length !== 13 && <li>• شناختی کارڈ نمبر (13 ہندسے) نامکمل ہے</li>}
+                        {cleanVehicleNo.length < 2 && <li>• گاڑی کا نمبر خالی ہے</li>}
+                        {!province && <li>• صوبہ منتخب نہیں کیا</li>}
+                        {formattedDateStr.length !== 8 && <li>• تاریخ مکمل نہیں ہے</li>}
+                      </ul>
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!isFormValid) {
+                        setShowValidationError(true);
+                        setTimeout(() => setShowValidationError(false), 4000);
+                        return;
+                      }
+                      setShowValidationError(false);
+                      window.location.href = registrationSmsHref;
+                    }}
+                    className={`w-full py-3.5 px-4 rounded-2xl font-black text-base shadow-lg transition flex items-center justify-center gap-2 text-center cursor-pointer ${
+                      isFormValid
+                        ? "bg-linear-to-r from-amber-400 to-amber-300 hover:from-amber-300 active:scale-95 text-stone-950"
+                        : "bg-stone-600 text-stone-400 cursor-not-allowed opacity-70"
+                    }`}
                   >
                     <span className="text-xl">📩</span>
                     <span>میسج ایپ میں کھولیں اور بھیجیں (9771)</span>
-                  </a>
+                  </button>
 
                   <div className="grid grid-cols-2 gap-2">
                     <button
@@ -862,7 +889,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {!isFormValid && (
+                {!isFormValid && !showValidationError && (
                   <p className="text-[10px] text-amber-300 text-center bg-black/30 py-1 px-2 rounded-lg">
                     نوٹ: چاروں خانے مکمل کریں تاکہ میسج بالکل درست بنے۔
                   </p>
