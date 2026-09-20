@@ -40,9 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# next-pwa generated service worker files (auto-generated at build time)
-/public/sw.js
-/public/sw.js.map
+# next-pwa auto-generated workbox files (not used — using manual SW)
 /public/workbox-*.js
 /public/workbox-*.js.map
 /public/fallback-*.js

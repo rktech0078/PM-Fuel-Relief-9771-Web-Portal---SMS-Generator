@@ -126,6 +126,19 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(reg) { console.log('SW registered:', reg.scope); })
+                    .catch(function(err) { console.warn('SW registration failed:', err); });
+                });
+              }
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col antialiased selection:bg-emerald-800 selection:text-amber-200">
         {children}
