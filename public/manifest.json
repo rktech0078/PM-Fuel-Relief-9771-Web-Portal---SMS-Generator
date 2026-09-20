@@ -1,0 +1,19 @@
+{
+  "name": "فیول ریلیف 9771 پورٹل",
+  "short_name": "فیول ریلیف 9771",
+  "description": "9771 پر رجسٹریشن میسج تیار کرنے کا عوامی پورٹل",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#01411C",
+  "theme_color": "#01411C",
+  "dir": "rtl",
+  "lang": "ur",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

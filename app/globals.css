@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Jameel Noori Nastaleeq';
+  src: url('https://cdn.jsdelivr.net/gh/mshoaib/urdu-fonts@main/dist/JameelNooriNastaleeq/JameelNooriNastaleeq.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/mshoaib/urdu-fonts@main/dist/JameelNooriNastaleeq/JameelNooriNastaleeq.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/mshoaib/urdu-fonts@main/dist/JameelNooriNastaleeq/JameelNooriNastaleeq.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jameel Noori Kasheeda';
+  src: url('https://cdn.jsdelivr.net/gh/mshoaib/urdu-fonts@main/dist/JameelNooriKasheeda/JameelNooriKasheeda.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/mshoaib/urdu-fonts@main/dist/JameelNooriKasheeda/JameelNooriKasheeda.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pak-green: #01411C;
+  --pak-green-dark: #002811;
+  --pak-green-light: #0d5a2c;
+  --pak-gold: #D4AF37;
+  --pak-gold-light: #FDE047;
+  --pak-emerald: #10B981;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Jameel Noori Nastaleeq', var(--font-noto-urdu), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+  text-align: right;
+  background-color: #f6faf7;
+  color: #1a2e22;
+  line-height: 2.1;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Urdu specific typography improvements */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.9;
+  font-family: 'Jameel Noori Nastaleeq', var(--font-noto-urdu), serif;
+  font-weight: 700;
+}
+
+.nastaleeq {
+  font-family: 'Jameel Noori Nastaleeq', var(--font-noto-urdu), serif;
+}
+
+/* Clean Latin digits and code font */
+.latin-num, input[type="text"], input[type="date"], .font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  direction: ltr !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #01411C;
+  border-radius: 4px;
+}
+
+/* Touch feedback for mobile */
+button, a {
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Subtle glow and glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(1, 65, 28, 0.1);
+}
+
+/* Print Slip Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-slip, #printable-slip * {
+    visibility: visible;
+  }
+  #printable-slip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+  .no-print {
+    display: none !important;
+  }
 }
