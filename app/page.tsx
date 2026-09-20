@@ -528,14 +528,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
-            {/* GitHub Link */}
+          {/* GitHub Link */}
             <a
               href="https://github.com/rktech0078/PM-Fuel-Relief-9771-Web-Portal---SMS-Generator"
               target="_blank"
               rel="noopener noreferrer"
               title="Open Source on GitHub – MIT License"
-              className="flex items-center gap-1.5 bg-stone-900 hover:bg-stone-700 active:scale-95 text-white px-2.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer shadow-xs"
+              className="flex items-center gap-1.5 bg-stone-900 hover:bg-stone-700 active:scale-95 text-white px-2.5 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer shadow-xs shrink-0"
             >
               {/* GitHub SVG Icon */}
               <svg
@@ -552,17 +551,6 @@ export default function HomePage() {
                 MIT
               </span>
             </a>
-
-            {/* Download App Button */}
-            <button
-              type="button"
-              onClick={() => setShowDownloadConfirm(true)}
-              className="bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1 transition cursor-pointer shadow-xs"
-            >
-              <span>📲</span>
-              <span>ایپ ڈاؤن لوڈ</span>
-            </button>
-          </div>
 
         </div>
       </header>
