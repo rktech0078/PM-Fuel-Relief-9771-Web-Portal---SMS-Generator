@@ -88,7 +88,7 @@ export default async function Image() {
           9771 پر خودکار رجسٹریشن ایس ایم ایس تیار کریں
         </div>
 
-        {/* Feature Pills */}
+        {/* Features Pills */}
         <div
           style={{
             display: "flex",
