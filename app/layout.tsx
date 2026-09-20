@@ -21,6 +21,7 @@ const siteUrl = "https://pm-fuel-relief.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
+    default: "فیول ریلیف پورٹل 9771",
     template: "%s | فیول ریلیف پورٹل 9771",
   },
   description:
