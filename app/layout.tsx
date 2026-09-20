@@ -21,11 +21,10 @@ const siteUrl = "https://pm-fuel-relief.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "⛽ فیول ریلیف ایس ایم ایس پورٹل 9771 | مفت رجسٹریشن ٹول",
     template: "%s | فیول ریلیف پورٹل 9771",
   },
   description:
-    "100 روپے فی لیٹر پٹرول ریلیف کے لیے 9771 پر خودکار رجسٹریشن میسج تیار کرنے کا عوامی پورٹل۔ موٹر سائیکل، رکشہ اور 800cc گاڑیوں کے لیے مفت ٹول۔",
+    "100 روپے فی لیٹر پٹرول ریلیف کے لیے 9771 پر خودکار رجسٹریشن میسج تیار کریں۔ موٹر سائیکل، رکشہ اور 800cc گاڑیوں کے لیے مفت عوامی پورٹل۔",
   applicationName: "فیول ریلیف 9771 پورٹل",
   keywords: [
     "PM Fuel Relief 9771",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     "800cc کار فیول ریلیف",
     "موٹرسائیکل پٹرول ریلیف",
   ],
-  authors: [{ name: "عوامی خدمت پروجیکٹ (غیر سرکاری)" }],
+  authors: [{ name: "عوامی خدمت پروجیکٹ" }],
   creator: "عوامی خدمت پروجیکٹ",
   publisher: "فیول ریلیف 9771",
   alternates: {
@@ -50,24 +49,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ur_PK",
     url: siteUrl,
-    title: "⛽ فیول ریلیف ایس ایم ایس پورٹل 9771 | 100 روپے فی لیٹر سبسڈی",
+    title: "⛽ وزیراعظم فیول ریلیف پورٹل | 100 روپے فی لیٹر سبسڈی",
     description:
       "موٹر سائیکل، رکشہ اور 800cc گاڑیوں کے لیے 9771 پر خودکار رجسٹریشن میسج بنائیں اور ایک کلک میں بھیجیں۔",
     siteName: "فیول ریلیف 9771 پورٹل",
     images: [
       {
-        url: "/icon.svg",
-        width: 512,
-        height: 512,
-        alt: "فیول ریلیف 9771 لوگو",
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "فیول ریلیف 9771 بینر",
       },
     ],
   },
   twitter: {
-    card: "summary",
-    title: "⛽ فیول ریلیف ایس ایم ایس پورٹل 9771",
+    card: "summary_large_image",
+    title: "⛽ وزیراعظم فیول ریلیف پورٹل | 9771 ایس ایم ایس جنریٹر",
     description: "9771 پر پٹرول ریلیف رجسٹریشن کے لیے آسان اور خودکار میسج جنریٹر ٹول۔",
-    images: ["/icon.svg"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -92,7 +92,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Structured Data Schema for Google Search
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -117,6 +116,11 @@ export default function RootLayout({
           rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛽</text></svg>"
         />
+        <meta property="og:image" content="https://pm-fuel-relief.vercel.app/opengraph-image" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://pm-fuel-relief.vercel.app/opengraph-image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
