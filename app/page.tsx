@@ -1108,16 +1108,44 @@ export default function HomePage() {
         </div>
       </footer>
 
+      {/* Mobile Validation Error Toast — appears above bottom bar */}
+      {showValidationError && (
+        <div className="fixed bottom-16 inset-x-0 z-50 sm:hidden px-3 pb-1">
+          <div className="bg-red-600 border border-red-400 text-white rounded-2xl px-3 py-2.5 text-xs font-bold text-center shadow-2xl animate-bounce">
+            ⚠️ براہ کرم پہلے چاروں خانے مکمل بھریں:
+            <ul className="mt-1 space-y-0.5 font-normal text-[11px] text-red-100 text-right">
+              {cnic.length !== 13 && <li>• شناختی کارڈ نمبر (13 ہندسے) نامکمل ہے</li>}
+              {cleanVehicleNo.length < 2 && <li>• گاڑی کا نمبر خالی ہے</li>}
+              {!province && <li>• صوبہ منتخب نہیں کیا</li>}
+              {formattedDateStr.length !== 8 && <li>• تاریخ مکمل نہیں ہے</li>}
+            </ul>
+          </div>
+        </div>
+      )}
+
       {/* Clean, Non-overlapping Sticky Bottom Action Bar for Mobile */}
       <div className="fixed bottom-0 inset-x-0 bg-stone-950/95 backdrop-blur-md border-t border-emerald-800/80 p-2 z-40 sm:hidden flex items-center justify-between gap-2 shadow-2xl">
         {/* Main Primary Send SMS Button */}
-        <a
-          href={registrationSmsHref}
-          className="flex-1 py-3 px-3 bg-linear-to-r from-amber-400 to-amber-300 active:scale-95 text-stone-950 font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-md text-center"
+        <button
+          type="button"
+          onClick={() => {
+            if (!isFormValid) {
+              setShowValidationError(true);
+              setTimeout(() => setShowValidationError(false), 4000);
+              return;
+            }
+            setShowValidationError(false);
+            window.location.href = registrationSmsHref;
+          }}
+          className={`flex-1 py-3 px-3 font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-md text-center transition active:scale-95 ${
+            isFormValid
+              ? "bg-linear-to-r from-amber-400 to-amber-300 text-stone-950"
+              : "bg-stone-600 text-stone-400 opacity-70"
+          }`}
         >
           <span>📩</span>
           <span>میسج بھیجیں (9771)</span>
-        </a>
+        </button>
 
         {/* Copy Button */}
         <button
@@ -1138,6 +1166,7 @@ export default function HomePage() {
           <span>ایپ</span>
         </button>
       </div>
+
 
       {/* Slip Modal */}
       {showSlipModal && (
