@@ -82,10 +82,8 @@ The application is fully optimized for single-click deployment on Vercel:
 
 1. Push your repository to GitHub.
 2. Import the repository in [Vercel Dashboard](https://vercel.com/new).
-3. Set your project name (Recommended free domains):
-   - `fuelrelief9771.vercel.app`
-   - `pmfuelrelief9771.vercel.app`
-   - `pm-fuel-relief.vercel.app`
+3. Live Deployment Link:
+   - **https://pm-fuel-relief.vercel.app**
 4. Deploy! 🚀
 
 ---

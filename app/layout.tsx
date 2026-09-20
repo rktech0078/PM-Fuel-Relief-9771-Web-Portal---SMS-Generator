@@ -16,7 +16,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-const siteUrl = "https://fuelrelief9771.vercel.app";
+const siteUrl = "https://pm-fuel-relief.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

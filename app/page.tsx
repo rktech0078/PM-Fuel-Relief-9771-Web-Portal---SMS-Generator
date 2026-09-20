@@ -235,7 +235,7 @@ export default function HomePage() {
     }
 
     // 2. Direct Web App Shortcut download for offline/home access
-    const currentOrigin = typeof window !== "undefined" ? window.location.href : "https://fuelrelief9771.vercel.app";
+    const currentOrigin = typeof window !== "undefined" ? window.location.href : "https://pm-fuel-relief.vercel.app";
     const htmlShortcut = `<!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>

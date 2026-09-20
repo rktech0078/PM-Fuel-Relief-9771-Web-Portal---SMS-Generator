@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://fuelrelief9771.vercel.app/sitemap.xml",
+    sitemap: "https://pm-fuel-relief.vercel.app/sitemap.xml",
   };
 }
